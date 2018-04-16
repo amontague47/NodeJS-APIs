@@ -28,6 +28,7 @@ http.createServer(function (req, res) {
     res.write("The date and time: " + dateTimeFromModule.myDateTime() + "\n");
     var queryStringData = fromQueryString.parse(req.url, true).query;
     var txt = queryStringData.item + " " + queryStringData.price;
-    res.write(pullFromDB.theseResults() + "\n");
+    var resultSet = pullFromDB.theseResults();
+    res.write(resultSet[9] + "\n");
     res.end(txt);
 }).listen(8080);
